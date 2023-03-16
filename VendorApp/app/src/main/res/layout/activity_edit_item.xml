@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Vendor.EditItem">
+
+    <RelativeLayout
+        android:id="@+id/mne"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:background="#37474f">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="ADD PRODUCT"
+            android:textColor="@color/white"
+            android:textSize="25dp"
+            android:textStyle="bold"></TextView>
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/shapestyle"
+            app:srcCompat="@drawable/edit1"
+            android:focusableInTouchMode="false"
+            android:focusable="false"
+            />
+
+        <ImageView
+            android:id="@+id/bk2"
+            android:layout_width="48dp"
+            android:focusableInTouchMode="false"
+            android:focusable="false"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/shapestyle"
+            app:srcCompat="@drawable/back"
+
+            />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/img2"
+        android:layout_width="70dp"
+        android:layout_height="67dp"
+        android:layout_below="@+id/mne"
+        android:focusableInTouchMode="false"
+        android:focusable="false"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:background="#37474f"
+        app:srcCompat="@drawable/cart"></ImageView>
+
+    <EditText
+        android:id="@+id/editname1"
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
+        android:layout_below="@+id/img2"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/edit_text_style"
+        android:hint="Enter Item Name"></EditText>
+
+    <EditText
+        android:id="@+id/editdescription"
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
+        android:layout_below="@+id/editname1"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/edit_text_style"
+        android:drawableStart="@drawable/desc"
+        android:drawableLeft="@drawable/email"
+        android:hint="Enter Item Description"></EditText>
+
+    <EditText
+        android:id="@+id/editprice"
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
+        android:layout_below="@+id/editdescription"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/edit_text_style"
+        android:drawableStart="@drawable/cash"
+        android:drawableLeft="@drawable/phone"
+        android:hint="Enter Item Price"></EditText>
+
+    <EditText
+        android:id="@+id/editquantity"
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
+        android:layout_below="@+id/editprice"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/edit_text_style"
+        android:hint="Enter Product Quantity(kg,gms,)"></EditText>
+
+    <Switch
+        android:id="@+id/swtch"
+        android:layout_width="377dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editquantity"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/white"></Switch>
+
+    <EditText
+        android:id="@+id/editdiscount"
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
+        android:layout_below="@+id/swtch"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/edit_text_style"
+        android:hint="Enter Discount"></EditText>
+
+    <EditText
+        android:id="@+id/editdiscountdesc"
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
+        android:layout_below="@+id/editdiscount"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/edit_text_style"
+        android:hint="Enter Discount Description"></EditText>
+
+    <Button
+        android:id="@+id/addp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editdiscountdesc"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/btnstyle"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="center"
+        android:text="UPDATE"
+        android:textColor="@color/white"
+        android:textSize="19sp"
+        android:textStyle="bold"></Button>
+
+</RelativeLayout>

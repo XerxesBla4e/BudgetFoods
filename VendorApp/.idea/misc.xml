@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/VendorApp/app/src/main/res/drawable/btnstyle.xml" value="0.1725" />
+        <entry key="..\:/VendorApp/app/src/main/res/drawable/cartpops.xml" value="0.162" />
+        <entry key="..\:/VendorApp/app/src/main/res/drawable/cartshape.xml" value="0.162" />
+        <entry key="..\:/VendorApp/app/src/main/res/drawable/edit_text_style.xml" value="0.1725" />
+        <entry key="..\:/VendorApp/app/src/main/res/drawable/shapestyle.xml" value="0.162" />
+        <entry key="..\:/VendorApp/app/src/main/res/layout/activity_add_item.xml" value="0.22" />
+        <entry key="..\:/VendorApp/app/src/main/res/layout/activity_client_signup.xml" value="0.25" />
+        <entry key="..\:/VendorApp/app/src/main/res/layout/activity_edit_item.xml" value="0.25" />
+        <entry key="..\:/VendorApp/app/src/main/res/layout/activity_forgot_pass.xml" value="0.18" />
+        <entry key="..\:/VendorApp/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/VendorApp/app/src/main/res/layout/activity_main.xml" value="0.18854166666666666" />
+        <entry key="..\:/VendorApp/app/src/main/res/layout/activity_main_client1.xml" value="0.18" />
+        <entry key="..\:/VendorApp/app/src/main/res/layout/activity_main_vendor.xml" value="0.2" />
+        <entry key="..\:/VendorApp/app/src/main/res/layout/activity_order_details.xml" value="0.25" />
+        <entry key="..\:/VendorApp/app/src/main/res/layout/activity_order_details2.xml" value="0.20416666666666666" />
+        <entry key="..\:/VendorApp/app/src/main/res/layout/activity_retrieve_data.xml" value="0.15" />
+        <entry key="..\:/VendorApp/app/src/main/res/layout/activity_update_profile.xml" value="0.25" />
+        <entry key="..\:/VendorApp/app/src/main/res/layout/activity_vendor_sign_up.xml" value="0.25" />
+        <entry key="..\:/VendorApp/app/src/main/res/layout/activity_view_products.xml" value="0.33" />
+        <entry key="..\:/VendorApp/app/src/main/res/layout/allcartrow.xml" value="0.20416666666666666" />
+        <entry key="..\:/VendorApp/app/src/main/res/layout/cartmainrow.xml" value="0.22" />
+        <entry key="..\:/VendorApp/app/src/main/res/layout/cartpopup.xml" value="0.25" />
+        <entry key="..\:/VendorApp/app/src/main/res/layout/cartrecycler.xml" value="0.25" />
+        <entry key="..\:/VendorApp/app/src/main/res/layout/cartrow.xml" value="0.22" />
+        <entry key="..\:/VendorApp/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/VendorApp/app/src/main/res/layout/fragment_home1.xml" value="0.25" />
+        <entry key="..\:/VendorApp/app/src/main/res/layout/fragment_product.xml" value="0.25" />
+        <entry key="..\:/VendorApp/app/src/main/res/layout/fragment_product1.xml" value="0.25" />
+        <entry key="..\:/VendorApp/app/src/main/res/layout/item1recycler.xml" value="0.2" />
+        <entry key="..\:/VendorApp/app/src/main/res/layout/itemdetails.xml" value="0.15" />
+        <entry key="..\:/VendorApp/app/src/main/res/layout/itemrecycler.xml" value="0.25" />
+        <entry key="..\:/VendorApp/app/src/main/res/layout/orderdetsrow.xml" value="0.18229166666666666" />
+        <entry key="..\:/VendorApp/app/src/main/res/layout/ordersrecycler.xml" value="0.18854166666666666" />
+        <entry key="..\:/VendorApp/app/src/main/res/layout/shoprow.xml" value="0.25" />
+        <entry key="..\:/VendorApp/app/src/main/res/menu/bottom_menu.xml" value="0.2" />
+        <entry key="..\:/VendorApp/app/src/main/res/menu/bottommenu1.xml" value="0.2" />
+      </map>
+    </option>
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
+</project>

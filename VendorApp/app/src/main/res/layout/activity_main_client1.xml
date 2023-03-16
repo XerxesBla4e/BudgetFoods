@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Client.MainClient">
+
+    <RelativeLayout
+        android:id="@+id/toolb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="0dp"
+        android:background="@color/bg">
+
+        <ImageView
+            android:id="@+id/signout"
+            android:layout_width="48dp"
+            android:focusableInTouchMode="false"
+            android:focusable="false"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/shapestyle"
+            app:srcCompat="@drawable/signout" />
+
+        <ImageView
+            android:id="@+id/edit"
+            android:layout_width="48dp"
+            android:focusableInTouchMode="false"
+            android:focusable="false"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/signout"
+            android:layout_toLeftOf="@+id/signout"
+            android:background="@drawable/shapestyle"
+            app:srcCompat="@drawable/edit1" />
+
+        <ImageView
+            android:id="@+id/lingual1"
+            android:focusableInTouchMode="false"
+            android:focusable="false"
+            android:layout_width="48dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/shapestyle"
+            app:srcCompat="@drawable/language" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/pp3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolb"
+        android:layout_marginTop="-4dp"
+        android:background="@drawable/backgroud">
+
+        <TextView
+            android:id="@+id/prfle"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="@string/name_account_type"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold"></TextView>
+    </RelativeLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main_container"
+        android:layout_width="match_parent"
+        android:layout_height="741dp"
+        android:layout_below="@+id/pp3"
+        android:layout_marginTop="2dp">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavigationView"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:layout_margin="30dp"
+            android:background="@drawable/rouded_corner"
+            android:elevation="4dp"
+            app:itemIconSize="30dp"
+            app:itemRippleColor="@android:color/transparent"
+            app:labelVisibilityMode="unlabeled"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:menu="@menu/bottom_menu"
+            app:itemTextColor="@color/bottom_nav_color"
+            app:itemIconTint="@color/bottom_nav_color"
+            ></com.google.android.material.bottomnavigation.BottomNavigationView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>

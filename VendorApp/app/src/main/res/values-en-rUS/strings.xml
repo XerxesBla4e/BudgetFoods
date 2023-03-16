@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Vendor App</string>
+    <string name="success">Successfully Created Account</string>
+    <string name="xercov_delivery">Vendor App</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="update">UPDATE</string>
+    <string name="quantity">Quantity</string>
+    <string name="enter_your_name">Enter Your Name</string>
+    <string name="enter_your_email">Enter Your Email</string>
+    <string name="enter_your_phone_number">Enter Your Phone Number</string>
+    <string name="enter_your_full_address">Enter Your Full Address</string>
+    <string name="enter_your_password">Enter Your Password</string>
+    <string name="signup">SIGNUP</string>
+    <string name="signup_as_vendor">SignUp As Vendor</string>
+    <string name="name_account_type">Name(Account Type)</string>
+    <string name="vendor_name">Vendor Name</string>
+    <string name="vendor_email">Vendor Email</string>
+    <string name="fee">fee</string>
+    <string name="closed">CLOSED</string>
+    <string name="add">ADD</string>
+    <string name="hello_vendor">Hello Vendor</string>
+    <string name="hello_client">Hello Client</string>
+    <string name="find_vendor">Find Vendor</string>
+    <string name="find_order">Find Order</string>
+    <string name="itemprice">ItemPrice</string>
+    <string name="itemname">ItemName</string>
+    <string name="discount_description">Discount Description</string>
+    <string name="discount_price">Discount Price</string>
+    <string name="shopname">ShopName</string>
+    <string name="location">Location</string>
+</resources>

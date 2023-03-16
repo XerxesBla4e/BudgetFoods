@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Client.ViewProducts">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolBar2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#37474F"
+            android:minHeight="?attr/actionBarSize"
+            tools:ignore="MissingConstraints" />
+
+        <RelativeLayout
+            android:id="@+id/vendordets"
+            android:layout_width="407dp"
+            android:layout_height="109dp"
+            android:layout_below="@+id/toolBar2"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/bg3"
+            android:elevation="4dp">
+
+            <TextView
+                android:id="@+id/name1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/vendor_name"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"></TextView>
+
+            <TextView
+                android:id="@+id/email1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/name1"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="16dp"
+                android:hint="@string/vendor_email"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"></TextView>
+
+            <TextView
+                android:id="@+id/openclse"
+                android:layout_width="115dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/closebg"
+                android:gravity="center"
+                android:hint="@string/closed"
+                android:textColor="@color/black"
+                android:textSize="23sp"
+                android:textStyle="bold"></TextView>
+
+            <TextView
+                android:id="@+id/delfee"
+                android:layout_width="115dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/openclse"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:hint="@string/fee"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold"></TextView>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/delfee"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="2dp">
+
+                <ImageView
+                    android:id="@+id/phone2"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="160dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="@drawable/shapestyle"
+                    app:srcCompat="@drawable/call"></ImageView>
+
+                <ImageView
+                    android:id="@+id/find2"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_toRightOf="@+id/phone2"
+                    android:background="@drawable/shapestyle"
+                    app:srcCompat="@drawable/find"></ImageView>
+
+                <TextView
+                    android:id="@+id/counter"
+                    android:layout_width="25dp"
+                    android:layout_height="22dp"
+                    android:layout_marginLeft="90dp"
+                    android:layout_toRightOf="@+id/find2"
+                    android:background="@drawable/active"
+                    android:text="1"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="16dp"
+                    android:textStyle="bold"></TextView>
+
+                <ImageView
+                    android:id="@+id/cart"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                   android:padding="5dp"
+                    android:layout_marginEnd="7dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_toRightOf="@+id/counter"
+                    android:background="@drawable/cartshape"
+                    app:srcCompat="@drawable/cart2"></ImageView>
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/vendordets">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/vendordets">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/prods1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/vendordets"
+                    app:layout_constraintVertical_bias="1.0"
+                    tools:listitem="@layout/item1recycler"></androidx.recyclerview.widget.RecyclerView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
