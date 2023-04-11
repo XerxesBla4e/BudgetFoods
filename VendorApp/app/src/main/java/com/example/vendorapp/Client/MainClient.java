@@ -6,10 +6,13 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.appcompat.widget.Toolbar;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -34,14 +37,14 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.HashMap;
 import java.util.Locale;
 
-public class MainClient extends AppCompatActivity implements View.OnClickListener {
+public class MainClient extends AppCompatActivity {
 
-    ImageView signout, editprof, lingual1;
     TextView myprof;
     private FirebaseAuth firebaseAuth;
     private FirebaseUser user;
     String username, accttype;
     BottomNavigationView bottomNavigationView;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,12 +52,10 @@ public class MainClient extends AppCompatActivity implements View.OnClickListene
         changeLanguage();
         setContentView(R.layout.activity_main_client1);
 
+
         hooks();
 
-        signout.setOnClickListener(this);
-        //   back.setOnClickListener(this);
-        editprof.setOnClickListener(this);
-        lingual1.setOnClickListener(this);
+        setSupportActionBar(toolbar);
 
         firebaseAuth = FirebaseAuth.getInstance();
         user = firebaseAuth.getCurrentUser();
@@ -108,7 +109,7 @@ public class MainClient extends AppCompatActivity implements View.OnClickListene
                 username = userDetsModel.getName();
                 accttype = userDetsModel.getAccounttype();
 
-                myprof.setText(username + "(" + accttype + ")");
+                myprof.setText("Hello " + username + "(" + accttype + ")");
 
             }
 
@@ -120,17 +121,23 @@ public class MainClient extends AppCompatActivity implements View.OnClickListene
     }
 
     private void hooks() {
-        signout = findViewById(R.id.signout);
-        myprof = findViewById(R.id.prfle);
-        //    back = findViewById(R.id.bk);
-        editprof = findViewById(R.id.edit);
+        myprof = findViewById(R.id.myprof1);
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        lingual1 = findViewById(R.id.lingual1);
+        toolbar = findViewById(R.id.toolb1);
     }
 
     @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu2, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.lingual1:
+                SelectLanguage();
+                break;
             case R.id.signout:
                 firebaseAuth.signOut();
                 makeOffline();
@@ -140,10 +147,10 @@ public class MainClient extends AppCompatActivity implements View.OnClickListene
             case R.id.edit:
                 startActivity(new Intent(MainClient.this, UpdateProfile.class));
                 break;
-            case R.id.lingual1:
-                SelectLanguage();
+            default:
                 break;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     //dialog box to enable user select prefered language

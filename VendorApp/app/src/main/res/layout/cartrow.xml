@@ -4,79 +4,94 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
-    android:elevation="5dp"
-    android:orientation="vertical"
-    app:cardCornerRadius="5dp">
+    android:layout_margin="8dp"
+    android:elevation="3dp"
+    app:cardCornerRadius="3dp">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="15dp">
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_toolbar"
+        android:orientation="horizontal"
+        android:padding="16dp">
 
         <ImageView
             android:id="@+id/recycleritemimg"
-            android:layout_width="60dp"
-            android:layout_height="67dp"
-            tools:srcCompat="@tools:sample/avatars" />
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:src="@drawable/ic_launcher_background" />
 
-        <TextView
-            android:id="@+id/recycleritem1"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginLeft="11dp"
-            android:layout_marginRight="4dp"
-            android:layout_toRightOf="@+id/recycleritemimg"
-            android:hint="ItemName"
-            android:textColor="@color/black"
-            android:textSize="17sp"
-            android:textStyle="bold"></TextView>
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/recyclerprice1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/recycleritem1"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginLeft="11dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginRight="4dp"
-            android:layout_toRightOf="@+id/recycleritemimg"
-            android:hint="ItemPrice"
-            android:textColor="@color/black"
-            android:textSize="17sp"
-            android:textStyle="bold"></TextView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/recycleramt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/recyclerprice1"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginLeft="11dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginRight="4dp"
-            android:layout_toRightOf="@+id/recycleritemimg"
-            android:hint="Total Amount"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/recycleritem1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Food" />
 
-        <ImageView
-            android:id="@+id/remove"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_below="@+id/recycleramt"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="2dp"
-            android:background="@color/orange"
-            app:srcCompat="@drawable/delete">
+                <TextView
+                    android:id="@+id/openclse"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Source" />
+            </LinearLayout>
 
-        </ImageView>
-    </RelativeLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/recyclerprice1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Price" />
+
+                <TextView
+                    android:id="@+id/recycleramt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Total Amount" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="19dp"
+                android:orientation="horizontal"
+                android:padding="3dp">
+
+                <ImageView
+                    android:id="@+id/remove"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginRight="10dp"
+                    app:srcCompat="@drawable/delete" />
+
+                <ImageView
+                    android:id="@+id/svg2"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    app:srcCompat="@drawable/edit1" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
 </androidx.cardview.widget.CardView>

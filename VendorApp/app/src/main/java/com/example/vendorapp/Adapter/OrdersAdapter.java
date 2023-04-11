@@ -44,13 +44,13 @@ public class OrdersAdapter extends FirebaseRecyclerAdapter<OrdersModel, OrdersAd
         String status = ordersModel.getOrderStatus();
 
         if (status.equals("In Progress")) {
-            viewHolder.tvstatus.setText(status);
+            viewHolder.tvstatus.setText("In Progress");
             viewHolder.tvstatus.setTextColor(context.getResources().getColor(R.color.green_pie));
         } else if (status.equals("Cancelled")) {
-            viewHolder.tvstatus.setText(status);
+            viewHolder.tvstatus.setText("Cancelled");
             viewHolder.tvstatus.setTextColor(context.getResources().getColor(R.color.red));
         } else if (status.equals("Confirmed")) {
-            viewHolder.tvstatus.setText(status);
+            viewHolder.tvstatus.setText("Confirmed");
             viewHolder.tvstatus.setTextColor(context.getResources().getColor(R.color.light_green));
         }
 

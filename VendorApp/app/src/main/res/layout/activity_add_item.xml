@@ -4,82 +4,78 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".VendorSignUp">
+    tools:context=".Vendor.AddItem">
 
     <RelativeLayout
         android:id="@+id/mne"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="2dp"
-        android:background="#37474f">
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="2dp"
+        android:background="@drawable/background_toolbar">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
             android:gravity="center"
-            android:text="ADD PRODUCT"
-            android:textColor="@color/white"
+            android:text="ADD FOOD"
+            android:textColor="@color/lightblue"
             android:textSize="25dp"
             android:textStyle="bold"></TextView>
 
         <ImageView
-            android:layout_width="48dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="5dp"
-            android:layout_marginLeft="5dp"
-            android:focusableInTouchMode="false"
-            android:focusable="false"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginBottom="5dp"
-            android:background="@drawable/shapestyle"
-            app:srcCompat="@drawable/edit1" />
 
-        <ImageView
             android:id="@+id/bk2"
             android:layout_width="48dp"
-            android:focusableInTouchMode="false"
-            android:focusable="false"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            android:layout_marginStart="5dp"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="5dp"
             android:layout_marginRight="5dp"
             android:layout_marginBottom="5dp"
-            android:background="@drawable/shapestyle"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:tooltipText="Back"
             app:srcCompat="@drawable/back" />
 
     </RelativeLayout>
 
     <ImageView
         android:id="@+id/img2"
-        android:layout_width="70dp"
-        android:layout_height="67dp"
+        android:layout_width="80dp"
+        android:layout_height="70dp"
         android:layout_below="@+id/mne"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"
-        android:focusableInTouchMode="false"
         android:focusable="false"
-        android:background="#37474f"
-        app:srcCompat="@drawable/cart"></ImageView>
+        android:focusableInTouchMode="false"
+        android:src="@drawable/ic_baseline_shopping_cart" />
+
+    <TextView
+        android:id="@+id/prompt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/img2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="4dp"
+        android:text="Click Cart to Select Food Pic"
+        android:textColor="@color/lightBlue"
+        android:textSize="12sp"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/editname1"
         android:layout_width="match_parent"
         android:layout_height="37dp"
-        android:layout_below="@+id/img2"
+        android:layout_below="@+id/prompt"
         android:layout_marginStart="5dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="5dp"
         android:background="@drawable/edit_text_style"
-        android:hint="Enter Item Name"
+        android:hint="Enter Food Name"
         android:padding="3dp"></EditText>
 
     <EditText
@@ -91,9 +87,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="5dp"
         android:background="@drawable/edit_text_style"
-        android:drawableStart="@drawable/desc"
-        android:drawableLeft="@drawable/email"
-        android:hint="Enter Item Description"
+        android:hint="Enter Source Description"
         android:padding="3dp"></EditText>
 
     <EditText
@@ -105,7 +99,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="5dp"
         android:background="@drawable/edit_text_style"
-        android:hint="Enter Item Price"
+        android:hint="Enter Price"
         android:padding="3dp"></EditText>
 
     <EditText
@@ -115,10 +109,10 @@
         android:layout_below="@+id/editprice"
         android:layout_marginStart="5dp"
         android:layout_marginTop="24dp"
-        android:padding="3dp"
         android:layout_marginEnd="5dp"
         android:background="@drawable/edit_text_style"
-        android:hint="Enter Product Quantity(kg,gms,)"></EditText>
+        android:hint="Enter Quantity(Optional)"
+        android:padding="3dp"></EditText>
 
     <Switch
         android:id="@+id/swtch"
@@ -162,8 +156,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/editdiscountdesc"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="7dp"
-        android:background="@drawable/btnstyle"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_style"
         android:fontFamily="sans-serif-condensed"
         android:gravity="center"
         android:text="ADD"

@@ -1,6 +1,7 @@
 package com.example.vendorapp.Adapter;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.graphics.Paint;
 import android.util.Log;
@@ -113,7 +114,7 @@ public class RetrieveAdapter extends FirebaseRecyclerAdapter<ItemModel, Retrieve
 
 
                 Button btn = (Button) cartview.findViewById(R.id.addcrt);
-                // ImageView cncl = (ImageView) cartview.findViewById(R.id.closedialog);
+                ImageView cncl = (ImageView) cartview.findViewById(R.id.close3);
                 add = (ImageView) cartview.findViewById(R.id.add);
                 // closed = (ImageView) cartview.findViewById(R.id.closedialog);
                 remove = (ImageView) cartview.findViewById(R.id.subtract);
@@ -121,7 +122,15 @@ public class RetrieveAdapter extends FirebaseRecyclerAdapter<ItemModel, Retrieve
 
                 builder.setView(cartview);
                 builder.setCancelable(true);
-                builder.show();
+                builder.setNegativeButton("Close", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                });
+                AlertDialog dialog = builder.create();
+                dialog.show();
+                //builder.show();
 
                 remove.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -130,6 +139,13 @@ public class RetrieveAdapter extends FirebaseRecyclerAdapter<ItemModel, Retrieve
                             qty = qty - 1;
                             display(qty);
                         }
+                    }
+                });
+
+                cncl.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
                     }
                 });
                 add.setOnClickListener(new View.OnClickListener() {
@@ -150,7 +166,7 @@ public class RetrieveAdapter extends FirebaseRecyclerAdapter<ItemModel, Retrieve
                             itemID = itemModel.getPid();
                             userID = itemModel.getUid();
                             itemImg = itemModel.getImage();
-                            sname =  retrieveShopName(userID);
+                            sname = retrieveShopName(userID);
                             discountprice = itemModel.getDiscountPrice();
                             isDiscounted = itemModel.getDiscountavailable();
                             if (itemImg.isEmpty()) {
@@ -165,7 +181,7 @@ public class RetrieveAdapter extends FirebaseRecyclerAdapter<ItemModel, Retrieve
                                 total = Integer.parseInt(itemnprice1) * Integer.parseInt(quantity.getText().toString());
                             }
 
-                            int f = databaseManager.insert(itemname1, Integer.parseInt(quantity.getText().toString()), itemID, total, userID, itemg,sname);
+                            int f = databaseManager.insert(itemname1, Integer.parseInt(quantity.getText().toString()), itemID, total, userID, itemg, sname);
                             if (f > 1) {
                                 Toast.makeText(context, "Item " + itemModel.getItemname() + "Added To Cart", Toast.LENGTH_SHORT).show();
                             }

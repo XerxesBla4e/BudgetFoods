@@ -6,41 +6,33 @@
     android:orientation="vertical">
 
     <RelativeLayout
-        android:id="@+id/toolb"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_margin="0dp"
-        android:background="@color/bg">
-
-        <ImageView
-            android:id="@+id/closedialog"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:background="@color/purple_200"
-            app:srcCompat="@drawable/close" />
-
-
-    </RelativeLayout>
-
-    <RelativeLayout
+        android:id="@+id/t"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/toolb"
-        android:layout_marginTop="-4dp"
-        android:background="@drawable/backgroud">
+        android:layout_margin="2dp"
+        android:background="@drawable/background_toolbar">
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/close3"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:tooltipText="Retrive RealTime Location"
+            app:srcCompat="@drawable/close" />
 
         <TextView
-            android:id="@+id/prfle"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_centerHorizontal="true"
+            android:id="@+id/total"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
             android:gravity="center"
-            android:text="Cart"
-            android:textColor="@color/white"
-            android:textSize="20sp"
+            android:text="CART"
+            android:textColor="@color/lightblue"
+            android:textSize="25dp"
             android:textStyle="bold"></TextView>
+
     </RelativeLayout>
 
     <RelativeLayout
@@ -56,7 +48,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            android:background="@color/purple_200"
+            android:background="@drawable/btnstyle"
             app:srcCompat="@drawable/add"></ImageView>
 
         <EditText
@@ -69,6 +61,7 @@
             android:layout_toRightOf="@+id/add"
             android:gravity="center"
             android:hint="@string/quantity"
+            android:inputType="number"
             android:textColor="@color/black"
             android:textSize="24sp"></EditText>
 
@@ -79,7 +72,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:background="@color/purple_200"
+            android:background="@drawable/btnstyle"
             app:srcCompat="@drawable/minus"></ImageView>
     </RelativeLayout>
 
@@ -92,7 +85,7 @@
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:layout_centerHorizontal="true"
-            android:backgroundTint="@color/purple_200"
+            android:background="@drawable/btnstyle"
             android:gravity="center"
             android:text="@string/add"
             android:textColor="@color/greyish"
@@ -106,7 +99,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_margin="0dp"
-        android:background="@color/bg">
+        android:background="@drawable/background_toolbar">
 
     </RelativeLayout>
 

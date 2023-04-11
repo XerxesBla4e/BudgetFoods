@@ -2,12 +2,9 @@ package com.example.vendorapp.typemodel;
 
 public class Users {
     String accounttype;
+    String city;
 
     public Users() {
-    }
-
-    public Users(String accounttype) {
-        this.accounttype = accounttype;
     }
 
     public String getAccounttype() {
@@ -16,5 +13,13 @@ public class Users {
 
     public void setAccounttype(String accounttype) {
         this.accounttype = accounttype;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 }

@@ -4,62 +4,71 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".VendorSignUp">
+    tools:context=".ClientSignup">
+
+    <RelativeLayout
+        android:id="@+id/menu4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="2dp"
+        android:background="@drawable/background_toolbar">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="REGISTER"
+            android:textColor="@color/lightblue"
+            android:textSize="25dp"
+            android:textStyle="bold"></TextView>
+
+        <ImageView
+
+            android:id="@+id/bk1"
+            android:layout_width="48dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:tooltipText="Back"
+            app:srcCompat="@drawable/back" />
+
+        <ImageView
+            android:id="@+id/cordinates"
+            android:layout_width="48dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:tooltipText="Retrive RealTime Location"
+            app:srcCompat="@drawable/location" />
+    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#FF8C00">
-
-        <RelativeLayout
-            android:id="@+id/menu4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/backgroud">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:gravity="center"
-                android:text="@string/signup"
-                android:textColor="@color/white"
-                android:textSize="25dp"
-                android:textStyle="bold"></TextView>
-
-            <ImageView
-                android:id="@+id/cordinates"
-                android:layout_width="48dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_margin="5dp"
-                android:focusableInTouchMode="false"
-                android:focusable="false"
-                android:background="@drawable/shapestyle"
-                app:srcCompat="@drawable/location" />
-
-            <ImageView
-                android:id="@+id/bk1"
-                android:layout_width="43dp"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="5dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginBottom="5dp"
-                android:focusableInTouchMode="false"
-                android:focusable="false"
-                android:background="@drawable/shapestyle"
-                app:srcCompat="@drawable/back" />
-
-        </RelativeLayout>
+        android:layout_below="@+id/menu4">
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:layout_below="@+id/menu4">
 
             <RelativeLayout
@@ -68,21 +77,30 @@
 
                 <ImageView
                     android:id="@+id/profile"
-                    android:layout_width="77dp"
-                    android:layout_height="55dp"
-                    android:layout_below="@+id/menu4"
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="34dp"
-                    android:focusableInTouchMode="false"
                     android:focusable="false"
-                    android:background="@drawable/imgcircle"
-                    app:srcCompat="@drawable/prof4"></ImageView>
+                    android:focusableInTouchMode="false"
+                    android:src="@drawable/account" />
+
+                <TextView
+                    android:id="@+id/prompt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/profile"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="4dp"
+                    android:text="Click Logo to Select Profile Pic"
+                    android:textColor="@color/lightBlue"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/editname"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:layout_below="@+id/profile"
+                    android:layout_below="@+id/prompt"
                     android:layout_marginStart="5dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="5dp"
@@ -91,8 +109,7 @@
                     android:drawableLeft="@drawable/profile"
                     android:drawableTint="@color/black"
                     android:hint="@string/enter_your_name"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/black"></EditText>
+                    android:textColor="@color/greyish"></EditText>
 
                 <EditText
                     android:id="@+id/editemail"
@@ -107,8 +124,7 @@
                     android:drawableLeft="@drawable/email"
                     android:drawableTint="@color/black"
                     android:hint="@string/enter_your_email"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/black"></EditText>
+                    android:textColor="@color/greyish"></EditText>
 
                 <EditText
                     android:id="@+id/editphone"
@@ -116,15 +132,14 @@
                     android:layout_height="40dp"
                     android:layout_below="@+id/editemail"
                     android:layout_marginStart="5dp"
-                    android:layout_marginTop="21dp"
+                    android:layout_marginTop="20dp"
                     android:layout_marginEnd="5dp"
                     android:background="@drawable/edit_text_style"
                     android:drawableStart="@drawable/phone"
                     android:drawableLeft="@drawable/phone"
                     android:drawableTint="@color/black"
                     android:hint="@string/enter_your_phone_number"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/black"></EditText>
+                    android:textColor="@color/greyish"></EditText>
 
                 <EditText
                     android:id="@+id/editaddress"
@@ -139,8 +154,7 @@
                     android:drawableLeft="@drawable/phone"
                     android:drawableTint="@color/black"
                     android:hint="@string/enter_your_full_address"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/black"></EditText>
+                    android:textColor="@color/greyish"></EditText>
 
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -199,26 +213,28 @@
                     android:layout_below="@+id/editpasslayout2"
                     android:layout_centerInParent="true"
                     android:layout_marginTop="13dp"
-                    android:background="@drawable/btnstyle"
+                    android:background="@drawable/button_style"
                     android:fontFamily="sans-serif-condensed"
                     android:text="SIGNUP"
                     android:textColor="@color/white"
                     android:textSize="16sp"
                     android:textStyle="bold"></Button>
 
+
                 <TextView
                     android:id="@+id/vndrsignup"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/btnsgnup"
-                    android:layout_marginTop="12dp"
-                    android:gravity="center"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
                     android:onClick="vendor"
                     android:text="@string/signup_as_vendor"
-                    android:textColor="@color/black"
-                    android:textSize="19sp"
+                    android:textColor="@color/lightBlue"
+                    android:textSize="15sp"
                     android:textStyle="bold"
-                    tools:ignore="OnClick"></TextView>
+                    tools:ignore="OnClick" />
+
             </RelativeLayout>
         </androidx.core.widget.NestedScrollView>
 

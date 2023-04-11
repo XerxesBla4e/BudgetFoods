@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -14,10 +15,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.vendorapp.Cart.DatabaseManager;
+import com.example.vendorapp.Client.MainClient;
 import com.example.vendorapp.Fragments.FragmentCart;
 import com.example.vendorapp.Fragments.Home1Fragment;
+import com.example.vendorapp.Fragments.MyOrdersFragment;
+import com.example.vendorapp.Fragments.ProductFragment;
 import com.example.vendorapp.Login;
 import com.example.vendorapp.R;
 import com.example.vendorapp.UpdateProfile;
@@ -35,9 +40,9 @@ import java.sql.SQLDataException;
 import java.util.HashMap;
 import java.util.Locale;
 
-public class MainVendor extends AppCompatActivity implements View.OnClickListener {
+public class MainVendor extends AppCompatActivity  {
 
-    ImageView signout, editprof, lingual;
+   // ImageView signout, editprof, lingual;
     TextView myprof;
     private FirebaseAuth firebaseAuth;
     String username, accttype;
@@ -45,8 +50,9 @@ public class MainVendor extends AppCompatActivity implements View.OnClickListene
     BottomNavigationView bottomNavigationView;
     private static final String TAG = "Client Signup";
     DatabaseManager databaseManager;
+    Toolbar toolbar;
 
-    @Override
+    @Override 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         changeLanguage();
@@ -62,9 +68,11 @@ public class MainVendor extends AppCompatActivity implements View.OnClickListene
         }
         hooks();
 
-        signout.setOnClickListener(this);
-        editprof.setOnClickListener(this);
-        lingual.setOnClickListener(this);
+        setSupportActionBar(toolbar);
+
+        //signout.setOnClickListener(this);
+        //editprof.setOnClickListener(this);
+       // lingual.setOnClickListener(this);
 
         firebaseAuth = FirebaseAuth.getInstance();
         user = firebaseAuth.getCurrentUser();
@@ -81,9 +89,10 @@ public class MainVendor extends AppCompatActivity implements View.OnClickListene
                         getSupportFragmentManager().beginTransaction().replace(R.id.main_container1, new Home1Fragment()).addToBackStack(null).commit();
                         break;
                     case R.id.crt:
-                       // getSupportFragmentManager().beginTransaction().replace(R.id.main_container1, new FragmentCart()).addToBackStack(null).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.main_container1, new FragmentCart()).addToBackStack(null).commit();
                         break;
                     case R.id.viewo:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.main_container, new MyOrdersFragment()).addToBackStack(null).commit();
                         break;
                 }
 
@@ -117,7 +126,7 @@ public class MainVendor extends AppCompatActivity implements View.OnClickListene
                 username = userDetsModel.getName();
                 accttype = userDetsModel.getAccounttype();
 
-                myprof.setText(username + "(" + accttype + ")");
+                myprof.setText("Hello"+username + "(" + accttype + ")");
 
             }
 
@@ -129,16 +138,26 @@ public class MainVendor extends AppCompatActivity implements View.OnClickListene
     }
 
     private void hooks() {
-        signout = findViewById(R.id.signout);
+       // signout = findViewById(R.id.signout);
         myprof = findViewById(R.id.prfle);
-        editprof = findViewById(R.id.edit);
-        lingual = findViewById(R.id.lingual);
+       // editprof = findViewById(R.id.edit);
+      //  lingual = findViewById(R.id.lingual);
+        toolbar = findViewById(R.id.toolb);
         bottomNavigationView = findViewById(R.id.bottomNavigationView1);
     }
 
     @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu2, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.lingual1:
+                showLanguages();
+                break;
             case R.id.signout:
                 firebaseAuth.signOut();
                 makeOffline();
@@ -148,10 +167,10 @@ public class MainVendor extends AppCompatActivity implements View.OnClickListene
             case R.id.edit:
                 startActivity(new Intent(MainVendor.this, UpdateProfile.class));
                 break;
-            case R.id.lingual:
-                showLanguages();
+            default:
                 break;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     private void showLanguages() {

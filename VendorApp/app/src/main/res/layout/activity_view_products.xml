@@ -1,165 +1,179 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Client.ViewProducts">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Client.ViewProducts"
+    >
 
     <RelativeLayout
+        android:id="@+id/mne"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="2dp"
+        android:background="@drawable/background_toolbar">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolBar2"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#37474F"
-            android:minHeight="?attr/actionBarSize"
-            tools:ignore="MissingConstraints" />
+            android:gravity="center"
+            android:text="ITEMS"
+            android:textColor="@color/lightblue"
+            android:textSize="25dp"
+            android:textStyle="bold"></TextView>
 
-        <RelativeLayout
-            android:id="@+id/vendordets"
-            android:layout_width="407dp"
-            android:layout_height="109dp"
-            android:layout_below="@+id/toolBar2"
-            android:layout_marginStart="4dp"
-            android:layout_marginLeft="4dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="4dp"
-            android:layout_marginRight="4dp"
-            android:layout_marginBottom="4dp"
-            android:background="@drawable/bg3"
-            android:elevation="4dp">
+        <ImageView
+            android:id="@+id/bk4"
+            android:layout_width="48dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:tooltipText="Back"
+            app:srcCompat="@drawable/back" />
 
-            <TextView
-                android:id="@+id/name1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="@string/vendor_name"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:textStyle="bold"></TextView>
+        <ImageView
+            android:id="@+id/location"
+            android:layout_width="48dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:tooltipText="Retrive RealTime Location" />
+    </RelativeLayout>
 
-            <TextView
-                android:id="@+id/email1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/name1"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_marginTop="16dp"
-                android:hint="@string/vendor_email"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:textStyle="bold"></TextView>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/infocard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mne"
+        android:padding="7dp"
+        app:cardBackgroundColor="@color/grey"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp">
 
-            <TextView
-                android:id="@+id/openclse"
-                android:layout_width="115dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:background="@drawable/closebg"
-                android:gravity="center"
-                android:hint="@string/closed"
-                android:textColor="@color/black"
-                android:textSize="23sp"
-                android:textStyle="bold"></TextView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/delfee"
-                android:layout_width="115dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/openclse"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="5dp"
-                android:gravity="center"
-                android:hint="@string/fee"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                android:textStyle="bold"></TextView>
-
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/delfee"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="2dp">
+                android:orientation="horizontal">
 
-                <ImageView
-                    android:id="@+id/phone2"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="160dp"
-                    android:layout_marginLeft="20dp"
-                    android:background="@drawable/shapestyle"
-                    app:srcCompat="@drawable/call"></ImageView>
+                <TextView
+                    android:id="@+id/name1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="17sp"
+                    android:gravity="center"
+                    android:text="Name" />
 
-                <ImageView
-                    android:id="@+id/find2"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_toRightOf="@+id/phone2"
-                    android:background="@drawable/shapestyle"
-                    app:srcCompat="@drawable/find"></ImageView>
+                <TextView
+                    android:id="@+id/openclse"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/closebg"
+                    android:gravity="center"
+                    android:text="CLOSED"
+                    android:textSize="17sp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/email1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textSize="17sp"
+                    android:text="Email" />
+
+                <TextView
+                    android:id="@+id/delfee"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textSize="17sp"
+                    android:text="Fee" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:padding="8dp">
 
                 <TextView
                     android:id="@+id/counter"
-                    android:layout_width="25dp"
-                    android:layout_height="22dp"
-                    android:layout_marginLeft="90dp"
-                    android:layout_toRightOf="@+id/find2"
-                    android:background="@drawable/active"
-                    android:text="1"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:textSize="16dp"
-                    android:textStyle="bold"></TextView>
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/circle_shape"
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:text="0"
+                    android:textColor="@color/green_pie"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <ImageView
                     android:id="@+id/cart"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                   android:padding="5dp"
-                    android:layout_marginEnd="7dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_toRightOf="@+id/counter"
-                    android:background="@drawable/cartshape"
-                    app:srcCompat="@drawable/cart2"></ImageView>
-            </RelativeLayout>
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/vendordets">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/vendordets">
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/prods1"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/vendordets"
-                    app:layout_constraintVertical_bias="1.0"
-                    tools:listitem="@layout/item1recycler"></androidx.recyclerview.widget.RecyclerView>
+                    android:padding="8dp"
+                    android:src="@drawable/ic_baseline_shopping_cart"
+                     />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                <ImageView
+                    android:id="@+id/find2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:src="@drawable/find" />
 
-        </RelativeLayout>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:id="@+id/phone2"
+                    android:src="@drawable/call" />
+            </LinearLayout>
 
-    </RelativeLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/prods1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/infocard"
+        tools:listitem="@layout/item1recycler" />
 
 </RelativeLayout>

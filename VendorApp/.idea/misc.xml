@@ -3,6 +3,42 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/GITHUB/VendorApp/app/src/main/res/drawable/background_toolbar1.xml" value="0.1725" />
+        <entry key="..\:/GITHUB/VendorApp/app/src/main/res/drawable/button_style.xml" value="0.1375" />
+        <entry key="..\:/GITHUB/VendorApp/app/src/main/res/drawable/curve_edges.xml" value="0.1995" />
+        <entry key="..\:/GITHUB/VendorApp/app/src/main/res/layout/activity_add_item.xml" value="0.25" />
+        <entry key="..\:/GITHUB/VendorApp/app/src/main/res/layout/activity_client_signup.xml" value="0.33" />
+        <entry key="..\:/GITHUB/VendorApp/app/src/main/res/layout/activity_edit_item.xml" value="0.25" />
+        <entry key="..\:/GITHUB/VendorApp/app/src/main/res/layout/activity_forgot_pass.xml" value="0.22" />
+        <entry key="..\:/GITHUB/VendorApp/app/src/main/res/layout/activity_login.xml" value="0.33" />
+        <entry key="..\:/GITHUB/VendorApp/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/GITHUB/VendorApp/app/src/main/res/layout/activity_main_client1.xml" value="0.2" />
+        <entry key="..\:/GITHUB/VendorApp/app/src/main/res/layout/activity_main_vendor.xml" value="0.22" />
+        <entry key="..\:/GITHUB/VendorApp/app/src/main/res/layout/activity_order_details.xml" value="0.33" />
+        <entry key="..\:/GITHUB/VendorApp/app/src/main/res/layout/activity_order_details2.xml" value="0.2" />
+        <entry key="..\:/GITHUB/VendorApp/app/src/main/res/layout/activity_retrieve_data.xml" value="0.2" />
+        <entry key="..\:/GITHUB/VendorApp/app/src/main/res/layout/activity_update_profile.xml" value="0.25" />
+        <entry key="..\:/GITHUB/VendorApp/app/src/main/res/layout/activity_vendor_sign_up.xml" value="0.33" />
+        <entry key="..\:/GITHUB/VendorApp/app/src/main/res/layout/activity_view_products.xml" value="0.33" />
+        <entry key="..\:/GITHUB/VendorApp/app/src/main/res/layout/allcartrow.xml" value="0.2" />
+        <entry key="..\:/GITHUB/VendorApp/app/src/main/res/layout/cartmainrow.xml" value="0.2" />
+        <entry key="..\:/GITHUB/VendorApp/app/src/main/res/layout/cartpopup.xml" value="0.25" />
+        <entry key="..\:/GITHUB/VendorApp/app/src/main/res/layout/cartrecycler.xml" value="0.25" />
+        <entry key="..\:/GITHUB/VendorApp/app/src/main/res/layout/cartrow.xml" value="0.33" />
+        <entry key="..\:/GITHUB/VendorApp/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/GITHUB/VendorApp/app/src/main/res/layout/fragment_home1.xml" value="0.25" />
+        <entry key="..\:/GITHUB/VendorApp/app/src/main/res/layout/fragment_my_orders.xml" value="0.2" />
+        <entry key="..\:/GITHUB/VendorApp/app/src/main/res/layout/fragment_product.xml" value="0.25" />
+        <entry key="..\:/GITHUB/VendorApp/app/src/main/res/layout/fragment_product1.xml" value="0.2" />
+        <entry key="..\:/GITHUB/VendorApp/app/src/main/res/layout/item1recycler.xml" value="0.33" />
+        <entry key="..\:/GITHUB/VendorApp/app/src/main/res/layout/itemdetails.xml" value="0.33" />
+        <entry key="..\:/GITHUB/VendorApp/app/src/main/res/layout/itemrecycler.xml" value="0.25" />
+        <entry key="..\:/GITHUB/VendorApp/app/src/main/res/layout/orderdetsrow.xml" value="0.2" />
+        <entry key="..\:/GITHUB/VendorApp/app/src/main/res/layout/ordersrecycler.xml" value="0.2" />
+        <entry key="..\:/GITHUB/VendorApp/app/src/main/res/layout/shoprow.xml" value="0.33" />
+        <entry key="..\:/GITHUB/VendorApp/app/src/main/res/layout/test5.xml" value="0.33" />
+        <entry key="..\:/GITHUB/VendorApp/app/src/main/res/menu/bottommenu1.xml" value="0.2" />
+        <entry key="..\:/GITHUB/VendorApp/app/src/main/res/menu/menu2.xml" value="0.2" />
         <entry key="..\:/VendorApp/app/src/main/res/drawable/btnstyle.xml" value="0.1725" />
         <entry key="..\:/VendorApp/app/src/main/res/drawable/cartpops.xml" value="0.162" />
         <entry key="..\:/VendorApp/app/src/main/res/drawable/cartshape.xml" value="0.162" />

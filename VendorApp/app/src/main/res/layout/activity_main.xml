@@ -21,7 +21,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginBottom="20dp"
         android:gravity="center"
-        android:text="@string/xercov_delivery"
+        android:text="@string/app_name1"
         android:textColor="@color/white"
         android:textSize="25dp"
         android:textStyle="bold"></TextView>

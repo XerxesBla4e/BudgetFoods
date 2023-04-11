@@ -7,65 +7,68 @@
     tools:context=".VendorSignUp">
 
     <RelativeLayout
+        android:id="@+id/menu"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#FF8C00">
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="2dp"
+        android:background="@drawable/background_toolbar">
 
-        <RelativeLayout
-            android:id="@+id/menu"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/backgroud">
+            android:gravity="center"
+            android:text="REGISTER"
+            android:textColor="@color/lightblue"
+            android:textSize="25dp"
+            android:textStyle="bold"></TextView>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="39dp"
-                android:layout_centerInParent="true"
-                android:gravity="center"
-                android:text="SIGNUP"
-                android:textColor="@color/white"
-                android:textSize="25dp"
-                android:textStyle="bold"></TextView>
+        <ImageView
 
-            <ImageView
-                android:id="@+id/cordinates"
-                android:layout_width="48dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="5dp"
-                android:layout_marginLeft="5dp"
-                android:focusable="false"
-                android:focusableInTouchMode="false"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginBottom="5dp"
-                android:background="@drawable/shapestyle"
-                app:srcCompat="@drawable/location" />
+            android:id="@+id/bk2"
+            android:layout_width="48dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:tooltipText="Back"
+            app:srcCompat="@drawable/back" />
 
-            <ImageView
-                android:id="@+id/bk2"
-                android:layout_width="48dp"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="5dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginBottom="5dp"
-                android:background="@drawable/shapestyle"
-                android:focusable="false"
-                android:focusableInTouchMode="false"
-                app:srcCompat="@drawable/back" />
+        <ImageView
+            android:id="@+id/cordinates"
+            android:layout_width="48dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:tooltipText="Retrive RealTime Location"
+            app:srcCompat="@drawable/location" />
+    </RelativeLayout>
 
-        </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/menu">
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/menu"
             android:layout_marginBottom="5dp">
 
             <RelativeLayout
@@ -74,23 +77,29 @@
 
                 <ImageView
                     android:id="@+id/profile"
-                    android:layout_width="77dp"
-                    android:layout_height="55dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginEnd="154dp"
-                    android:layout_marginRight="154dp"
-                    android:focusableInTouchMode="false"
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
+                    android:layout_centerHorizontal="true"
                     android:focusable="false"
-                    android:background="@drawable/imgcircle"
-                    app:srcCompat="@drawable/prof4"></ImageView>
+                    android:focusableInTouchMode="false"
+                    android:src="@drawable/account" />
+                <TextView
+                    android:id="@+id/prompt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/profile"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="4dp"
+                    android:text="Click Logo to Select Profile Pic"
+                    android:textColor="@color/lightBlue"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/specialkey"
                     android:layout_width="match_parent"
                     android:layout_height="37dp"
-                    android:layout_below="@+id/profile"
+                    android:layout_below="@+id/prompt"
                     android:layout_marginStart="5dp"
                     android:layout_marginTop="17dp"
                     android:layout_marginEnd="5dp"
@@ -100,8 +109,7 @@
                     android:drawablePadding="5dp"
                     android:drawableTint="@color/black"
                     android:hint="Enter Special Key"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/black"></EditText>
+                    android:textColor="@color/greyish"></EditText>
 
                 <EditText
                     android:id="@+id/editname"
@@ -117,8 +125,7 @@
                     android:drawablePadding="5dp"
                     android:drawableTint="@color/black"
                     android:hint="Enter Your Name"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/black"></EditText>
+                    android:textColor="@color/greyish"></EditText>
 
                 <EditText
                     android:id="@+id/editmarket"
@@ -133,9 +140,8 @@
                     android:drawableLeft="@drawable/profile"
                     android:drawablePadding="5dp"
                     android:drawableTint="@color/black"
-                    android:hint="Enter Market"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/black"></EditText>
+                    android:hint="Enter Business Name"
+                    android:textColor="@color/greyish"></EditText>
 
                 <EditText
                     android:id="@+id/editdeliveryfee"
@@ -151,8 +157,7 @@
                     android:drawablePadding="5dp"
                     android:drawableTint="@color/black"
                     android:hint="Enter Delivery Fee"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/black"></EditText>
+                    android:textColor="@color/greyish"></EditText>
 
                 <EditText
                     android:id="@+id/editemail"
@@ -168,8 +173,7 @@
                     android:drawablePadding="5dp"
                     android:drawableTint="@color/black"
                     android:hint="Enter Your Email"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/black"></EditText>
+                    android:textColor="@color/greyish"></EditText>
 
 
                 <EditText
@@ -186,8 +190,7 @@
                     android:drawablePadding="5dp"
                     android:drawableTint="@color/black"
                     android:hint="Enter Your Phone Number"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/black"></EditText>
+                    android:textColor="@color/greyish"></EditText>
 
                 <EditText
                     android:id="@+id/editaddress"
@@ -203,8 +206,7 @@
                     android:drawablePadding="5dp"
                     android:drawableTint="@color/black"
                     android:hint="Enter Your Full Address"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/black"></EditText>
+                    android:textColor="@color/greyish"></EditText>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/editpasslayout"
@@ -261,7 +263,7 @@
                     android:layout_below="@+id/editpasslayout2"
                     android:layout_centerInParent="true"
                     android:layout_marginTop="17dp"
-                    android:background="@drawable/btnstyle"
+                    android:background="@drawable/button_style"
                     android:fontFamily="sans-serif-condensed"
                     android:text="SIGNUP"
                     android:textColor="@color/white"
@@ -270,15 +272,16 @@
 
                 <TextView
                     android:id="@+id/cltsgnup"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/btnsgnup"
-                    android:layout_marginTop="3dp"
-                    android:gravity="center"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
                     android:text="SignUp As Client"
-                    android:textColor="@color/black"
-                    android:textSize="17sp"
-                    android:textStyle="bold"></TextView>
+                    android:textColor="@color/lightBlue"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
             </RelativeLayout>
         </androidx.core.widget.NestedScrollView>
 

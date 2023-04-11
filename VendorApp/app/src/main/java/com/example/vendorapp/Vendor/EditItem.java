@@ -144,29 +144,30 @@ public class EditItem extends AppCompatActivity implements View.OnClickListener 
 
 
         if (TextUtils.isEmpty(sname)) {
-            name.setError("Item Name Is Required");
+            name.setError("Food Name Is Required");
             return false;
         }
         if (TextUtils.isEmpty(sdescription)) {
-            description.setError("Item Description Is Required");
+            description.setError("Source Description Is Required");
             return false;
         }
         if (TextUtils.isEmpty(sprice)) {
-            price.setError("Item Original Price Is Required");
+            price.setError("FoodPrice Is Required");
             return false;
         }
+        /*
         if (TextUtils.isEmpty(squantity)) {
             quantity.setError("Item Unit Is Required");
             return false;
 
-        }
+        }*/
         if (discountavailable) {
             if (TextUtils.isEmpty(sdiscount)) {
-                discount.setError("Item Discount Is Required");
+                discount.setError("Food Discount Is Required");
                 return false;
             }
             if (TextUtils.isEmpty(sdiscountesc)) {
-                discoundesc.setError("Item Discount Description Is Required");
+                discoundesc.setError("Food Discount Description Is Required");
                 return false;
             }
             dicount1 = Float.parseFloat(sprice) - Float.parseFloat(sdiscount);

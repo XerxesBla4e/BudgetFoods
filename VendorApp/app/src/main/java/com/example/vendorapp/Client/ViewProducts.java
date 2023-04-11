@@ -50,6 +50,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import org.json.JSONObject;
@@ -65,7 +66,7 @@ public class ViewProducts extends AppCompatActivity implements View.OnClickListe
     DatabaseReference databaseReference;
     //String shopID;
     TextView name, email, fee, opclse, cartcount;
-    ImageView call, find, cart;
+    ImageView call, find, cart, back;
     String shopPhone, shoplongitude, shoplatitude, clientlongitude, clientlatitude;
     FirebaseAuth firebaseAuth;
     FirebaseUser user;
@@ -88,6 +89,14 @@ public class ViewProducts extends AppCompatActivity implements View.OnClickListe
     public HashMap<String, Object> hashMap1;
     //end declaration of popup views
 
+    //logictest
+    public int totalv = 0;
+    public int orderCountv = 0;
+    public String fee2;
+    public String orderCount;
+    public double delivfee;
+    public Double fee1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,10 +111,11 @@ public class ViewProducts extends AppCompatActivity implements View.OnClickListe
         call.setOnClickListener(this);
         find.setOnClickListener(this);
         cart.setOnClickListener(this);
+        back.setOnClickListener(this);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolBar2);
-        setSupportActionBar(toolbar);
-        toolbar.setTitle("Products");
+        //  Toolbar toolbar = (Toolbar) findViewById(R.id.toolBar2);
+        //  setSupportActionBar(toolbar);
+        //  toolbar.setTitle("Products");
 
         if (getIntent() != null) {
             shopID = getIntent().getStringExtra("Shopid");
@@ -127,7 +137,7 @@ public class ViewProducts extends AppCompatActivity implements View.OnClickListe
                     shoplatitude = shopModel.getLatitude();
 
                     if (shopModel.getOnline().equals("true")) {
-                        opclse.setVisibility(View.INVISIBLE);
+                        opclse.setVisibility(View.GONE);
                     } else {
                         //opclse.setVisibility(View.VISIBLE);
                         // opclse.setText("open");
@@ -171,7 +181,7 @@ public class ViewProducts extends AppCompatActivity implements View.OnClickListe
         });
 
         //initialize popup views
-        progressDialog = new ProgressDialog(getApplicationContext());
+        progressDialog = new ProgressDialog(ViewProducts.this);
 
         databaseManager = new DatabaseManager(getApplicationContext());
         try {
@@ -192,6 +202,7 @@ public class ViewProducts extends AppCompatActivity implements View.OnClickListe
         call = findViewById(R.id.phone2);
         find = findViewById(R.id.find2);
         cart = findViewById(R.id.cart);
+        back = findViewById(R.id.bk4);
         cartcount = findViewById(R.id.counter);
     }
 
@@ -206,13 +217,13 @@ public class ViewProducts extends AppCompatActivity implements View.OnClickListe
         super.onStop();
         retrieveAdapter.stopListening();
     }
-
+/*
     public boolean onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.search, menu);
         MenuItem item = menu.findItem(R.id.search2);
 
         return super.onCreateOptionsMenu(menu);
-    }
+    }*/
 
     @Override
     public void onClick(View v) {
@@ -226,7 +237,17 @@ public class ViewProducts extends AppCompatActivity implements View.OnClickListe
             case R.id.cart:
                 viewCart();
                 break;
+            case R.id.bk4:
+                onBackPressed();
+                break;
+            default:
+                break;
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 
     private void viewCart() {
@@ -283,65 +304,223 @@ public class ViewProducts extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View view) {
                 Cursor cursor = databaseManager.fetch1(sname1);
+                databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(shopID).child("Orders");
 
-                if (cursor.moveToFirst()) {
-                    do {
-                        final String timestamp = "" + System.currentTimeMillis();
+                Query query = FirebaseDatabase.getInstance().getReference("Users").child(shopID).child("Orders")
+                        .orderByChild("orderBy").equalTo(firebaseAuth.getUid()).limitToLast(1);
+                query.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            for (DataSnapshot snapshot1 : snapshot.getChildren()) {
+                                fee2 = snapshot1.child("delivery").getValue(String.class);
+                                //orderCount = snapshot1.child("orderCount").getValue(String.class);
+                                fee1 = Double.valueOf(fee2);
+                                //int orderCounti = Integer.parseInt(orderCount);
+                                orderCountv += 1;
+                                delivfee = fee1 + 100;
 
-                        productID = cursor.getString(cursor.getColumnIndex(DatabaseHelper.PRODUCT_ID));
-                        shopID = cursor.getString(cursor.getColumnIndex(DatabaseHelper.SHOP_ID));
 
-                        progressDialog.setMessage("Processing Order");
-                        progressDialog.show();
+                                //order logic
+                                if (cursor.moveToFirst()) {
+                                    do {
+                                        final String timestamp = "" + System.currentTimeMillis();
 
-                        HashMap<String, Object> hashMap = new HashMap<>();
-                        hashMap.put("orderID", "" + timestamp);
-                        hashMap.put("orderTime", "" + timestamp);
-                        hashMap.put("cost", "" + totalPrices);
-                        hashMap.put("orderStatus", "In Progress");
-                        hashMap.put("orderBy", "" + firebaseAuth.getUid());
-                        hashMap.put("orderTo", "" + shopID);
+                                        productID = cursor.getString(cursor.getColumnIndex(DatabaseHelper.PRODUCT_ID));
+                                        shopID = cursor.getString(cursor.getColumnIndex(DatabaseHelper.SHOP_ID));
 
-                        final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(shopID).child("Orders");
-                        databaseReference.child(timestamp).setValue(hashMap)
-                                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                    @Override
-                                    public void onSuccess(Void aVoid) {
-                                        for (int i = 0; i < cartModelList.size(); i++) {
-                                            String pid = cartModelList.get(i).getPRODUCT_ID();
-                                            String name = cartModelList.get(i).getITEM();
-                                            int total = cartModelList.get(i).getTOTAL_AMOUNT();
-                                            int quantity = cartModelList.get(i).getQUANTITY();
+                                        progressDialog.setMessage("Processing Order");
+                                        progressDialog.show();
 
-                                            hashMap1 = new HashMap<>();
-                                            hashMap1.put("pid", pid);
-                                            hashMap1.put("name", name);
-                                            hashMap1.put("total", total);
-                                            hashMap1.put("quantity", quantity);
+                                        HashMap<String, Object> hashMap = new HashMap<>();
+                                        hashMap.put("orderID", "" + timestamp);
+                                        hashMap.put("orderTime", "" + timestamp);
+                                        hashMap.put("cost", "" + totalPrices);
+                                        hashMap.put("delivery", "" + delivfee);
+                                        hashMap.put("deliveryStatus", "unpaid");
+                                        hashMap.put("orderCount", "" + orderCountv);
+                                        hashMap.put("orderStatus", "In Progress");
+                                        hashMap.put("orderBy", "" + firebaseAuth.getUid());
+                                        hashMap.put("orderTo", "" + shopID);
 
-                                            databaseReference.child(timestamp).child("Items").setValue(hashMap1);
-                                        }
-                                        databaseManager.delete();
-                                        progressDialog.dismiss();
-                                        Toast.makeText(getApplicationContext(), "Order Placed Successfully......", Toast.LENGTH_SHORT).show();
+                                        //    final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(shopID).child("Orders");
+                                        databaseReference.child(timestamp).setValue(hashMap)
+                                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                    @Override
+                                                    public void onSuccess(Void aVoid) {
+                                                        for (int i = 0; i < cartModelList.size(); i++) {
+                                                            String pid = cartModelList.get(i).getPRODUCT_ID();
+                                                            String name = cartModelList.get(i).getITEM();
+                                                            int total = cartModelList.get(i).getTOTAL_AMOUNT();
+                                                            int quantity = cartModelList.get(i).getQUANTITY();
 
-                                        //send notification after placing order successfully
-                                        prepareNotificationMessage(timestamp);
+                                                            hashMap1 = new HashMap<>();
+                                                            hashMap1.put("pid", pid);
+                                                            hashMap1.put("name", name);
+                                                            hashMap1.put("total", total);
+                                                            hashMap1.put("quantity", quantity);
 
-                                    }
-                                }).addOnFailureListener(new OnFailureListener() {
-                            @java.lang.Override
-                            public void onFailure(@NonNull java.lang.Exception e) {
+                                                            databaseReference.child(timestamp).child("Items").setValue(hashMap1);
+                                                        }
+                                                        databaseManager.delete();
+                                                        progressDialog.dismiss();
+                                                        Toast.makeText(getApplicationContext(), "Order Placed Successfully......", Toast.LENGTH_SHORT).show();
 
+                                                        //send notification after placing order successfully
+                                                        prepareNotificationMessage(timestamp);
+
+                                                    }
+                                                }).addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(Exception e) {
+
+                                            }
+
+                                        });
+
+
+                                    } while (cursor.moveToNext());
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "Failed To place Order......", Toast.LENGTH_SHORT).show();
+                                }
+                                //end logic
                             }
+                        } else {
+                            if (cursor.moveToFirst()) {
+                                do {
+                                    final String timestamp = "" + System.currentTimeMillis();
 
-                        });
+                                    productID = cursor.getString(cursor.getColumnIndex(DatabaseHelper.PRODUCT_ID));
+                                    shopID = cursor.getString(cursor.getColumnIndex(DatabaseHelper.SHOP_ID));
+
+                                    progressDialog.setMessage("Processing Order");
+                                    progressDialog.show();
+
+                                    HashMap<String, Object> hashMap = new HashMap<>();
+                                    hashMap.put("orderID", "" + timestamp);
+                                    hashMap.put("orderTime", "" + timestamp);
+                                    hashMap.put("cost", "" + totalPrices);
+                                    final int i = 100;
+                                    hashMap.put("delivery", "" + i);
+                                    hashMap.put("deliveryStatus", "unpaid");
+                                    int i1 = 1;
+                                    hashMap.put("orderCount", "" + i1);
+                                    hashMap.put("orderStatus", "In Progress");
+                                    hashMap.put("orderBy", "" + firebaseAuth.getUid());
+                                    hashMap.put("orderTo", "" + shopID);
+
+                                    databaseReference.child(timestamp).setValue(hashMap)
+                                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                @Override
+                                                public void onSuccess(Void aVoid) {
+                                                    for (int i = 0; i < cartModelList.size(); i++) {
+                                                        String pid = cartModelList.get(i).getPRODUCT_ID();
+                                                        String name = cartModelList.get(i).getITEM();
+                                                        int total = cartModelList.get(i).getTOTAL_AMOUNT();
+                                                        int quantity = cartModelList.get(i).getQUANTITY();
+
+                                                        hashMap1 = new HashMap<>();
+                                                        hashMap1.put("pid", pid);
+                                                        hashMap1.put("name", name);
+                                                        hashMap1.put("total", total);
+                                                        hashMap1.put("quantity", quantity);
+
+                                                        databaseReference.child(timestamp).child("Items").setValue(hashMap1);
+                                                    }
+                                                    databaseManager.delete();
+                                                    progressDialog.dismiss();
+                                                    Toast.makeText(getApplicationContext(), "Order Placed Successfully......", Toast.LENGTH_SHORT).show();
+
+                                                    //send notification after placing order successfully
+                                                    prepareNotificationMessage(timestamp);
+
+                                                }
+                                            }).addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(Exception e) {
+
+                                        }
+
+                                    });
 
 
-                    } while (cursor.moveToNext());
-                } else {
-                    Toast.makeText(getApplicationContext(), "Failed To place Order......", Toast.LENGTH_SHORT).show();
-                }
+                                } while (cursor.moveToNext());
+                            } else {
+                                Toast.makeText(getApplicationContext(), "Failed To place Order......", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError error) {
+                        //create node if node doesn't exist at all
+                        if (error.getCode() == DatabaseError.PERMISSION_DENIED) {
+                            if (cursor.moveToFirst()) {
+                                do {
+                                    final String timestamp = "" + System.currentTimeMillis();
+
+                                    productID = cursor.getString(cursor.getColumnIndex(DatabaseHelper.PRODUCT_ID));
+                                    shopID = cursor.getString(cursor.getColumnIndex(DatabaseHelper.SHOP_ID));
+
+                                    progressDialog.setMessage("Processing Order");
+                                    progressDialog.show();
+
+                                    HashMap<String, Object> hashMap = new HashMap<>();
+                                    hashMap.put("orderID", "" + timestamp);
+                                    hashMap.put("orderTime", "" + timestamp);
+                                    hashMap.put("cost", "" + totalPrices);
+                                    final int i = 100;
+                                    hashMap.put("delivery", "" + i);
+                                    hashMap.put("deliveryStatus", "unpaid");
+                                    int i1 = 1;
+                                    hashMap.put("orderCount", "" + i1);
+                                    hashMap.put("orderStatus", "In Progress");
+                                    hashMap.put("orderBy", "" + firebaseAuth.getUid());
+                                    hashMap.put("orderTo", "" + shopID);
+
+                                    databaseReference.child(timestamp).setValue(hashMap)
+                                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                @Override
+                                                public void onSuccess(Void aVoid) {
+                                                    for (int i = 0; i < cartModelList.size(); i++) {
+                                                        String pid = cartModelList.get(i).getPRODUCT_ID();
+                                                        String name = cartModelList.get(i).getITEM();
+                                                        int total = cartModelList.get(i).getTOTAL_AMOUNT();
+                                                        int quantity = cartModelList.get(i).getQUANTITY();
+
+                                                        hashMap1 = new HashMap<>();
+                                                        hashMap1.put("pid", pid);
+                                                        hashMap1.put("name", name);
+                                                        hashMap1.put("total", total);
+                                                        hashMap1.put("quantity", quantity);
+
+                                                        databaseReference.child(timestamp).child("Items").setValue(hashMap1);
+                                                    }
+                                                    databaseManager.delete();
+                                                    progressDialog.dismiss();
+                                                    Toast.makeText(getApplicationContext(), "Order Placed Successfully......", Toast.LENGTH_SHORT).show();
+
+                                                    //send notification after placing order successfully
+                                                    prepareNotificationMessage(timestamp);
+
+                                                }
+                                            }).addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(Exception e) {
+
+                                        }
+
+                                    });
+
+
+                                } while (cursor.moveToNext());
+                            } else {
+                                Toast.makeText(getApplicationContext(), "Failed To place Order......", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }
+                });
+
                 dialog.dismiss();
             }
         });
@@ -350,8 +529,9 @@ public class ViewProducts extends AppCompatActivity implements View.OnClickListe
     }
 
     private void openMap() {
-        String address2 = "https://maps.google.com/maps?saddr" + clientlatitude + "," + clientlongitude + "&saddr=" + shoplatitude + "," + shoplongitude;
+        String address2 = "https://www.google.com/maps/search/?api=1&query=" + clientlatitude + "," + clientlongitude;
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(address2));
+        intent.setPackage("com.google.android.apps.maps");
         startActivity(intent);
     }
 

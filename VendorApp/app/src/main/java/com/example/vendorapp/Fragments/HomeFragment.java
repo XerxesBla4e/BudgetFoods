@@ -18,8 +18,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.vendorapp.Adapter.OrdersAdapter;
+import com.example.vendorapp.Adapter.ShopAdapter;
 import com.example.vendorapp.R;
 import com.example.vendorapp.typemodel.OrdersModel;
+import com.example.vendorapp.typemodel.ShopModel;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -32,6 +34,7 @@ public class HomeFragment extends Fragment {
     FirebaseAuth firebaseAuth;
     FirebaseUser user;
     String ID;
+    SearchView searchView;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -40,11 +43,11 @@ public class HomeFragment extends Fragment {
 
         setHasOptionsMenu(true);
 
-        Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolBar3);
+    /*    Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolBar3);
 
         AppCompatActivity activity = (AppCompatActivity) getActivity();
         activity.setSupportActionBar(toolbar);
-        toolbar.setTitle("Orders");
+        toolbar.setTitle("Orders");*/
 
         firebaseAuth = FirebaseAuth.getInstance();
         user = firebaseAuth.getCurrentUser();
@@ -64,8 +67,36 @@ public class HomeFragment extends Fragment {
         recyclerView.setAdapter(ordersAdapter);
         ordersAdapter.notifyDataSetChanged();
 
+        searchView = view.findViewById(R.id.searchview3);
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                txtSearch(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                txtSearch(newText);
+                return false;
+            }
+        });
 
         return view;
+    }
+
+    private void txtSearch(String str) {
+        FirebaseRecyclerOptions<OrdersModel> options =
+                new FirebaseRecyclerOptions.Builder<OrdersModel>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference("Users").child(ID).child("Orders")
+                                        .startAt(str).endAt(str + "~")
+                                , OrdersModel.class)
+                        .build();
+
+        ordersAdapter = new OrdersAdapter(getContext(), options);
+        recyclerView.setAdapter(ordersAdapter);
+        ordersAdapter.notifyDataSetChanged();
     }
 
     @Override
@@ -79,7 +110,7 @@ public class HomeFragment extends Fragment {
         super.onStop();
         ordersAdapter.stopListening();
     }
-
+/*
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
@@ -112,5 +143,5 @@ public class HomeFragment extends Fragment {
         ordersAdapter = new OrdersAdapter(getContext(), options);
         ordersAdapter.startListening();
         recyclerView.setAdapter(ordersAdapter);
-    }
+    }*/
 }

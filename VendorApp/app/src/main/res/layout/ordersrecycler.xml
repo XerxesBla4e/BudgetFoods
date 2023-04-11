@@ -31,13 +31,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/orderid"
-            android:layout_marginTop="4dp"
             android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="4dp"
             android:hint="@string/total_cost"
             android:textColor="@color/black"
             android:textSize="22sp"
-            android:textStyle="bold"
-            android:layout_alignParentLeft="true"></TextView>
+            android:textStyle="bold"></TextView>
 
         <TextView
             android:id="@+id/status"

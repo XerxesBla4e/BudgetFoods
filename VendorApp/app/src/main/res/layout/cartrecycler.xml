@@ -5,24 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/t"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/cartpops"
-        android:orientation="vertical">
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="2dp"
+        android:background="@drawable/background_toolbar">
 
         <TextView
-            android:id="@+id/total"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="5dp"
-            android:text="Total"
-            android:textColor="@color/black"
-            android:textSize="20sp"
+            android:gravity="center"
+            android:text="CART"
+            android:textColor="@color/lightblue"
+            android:textSize="25dp"
+            android:id="@+id/total"
             android:textStyle="bold"></TextView>
-    </LinearLayout>
+
+    </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/cartable"
@@ -30,9 +33,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/t"
         android:layout_marginTop="3dp"
-        tools:listitem="@layout/cartrow" />
+        tools:listitem="@layout/itemrecycler" />
 
     <Button
+        android:id="@+id/btnodr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/cartable"

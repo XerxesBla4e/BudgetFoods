@@ -301,8 +301,9 @@ public class OrderDetails extends AppCompatActivity implements View.OnClickListe
     }
 
     private void locateuser() {
-        String address2 = "https://maps.google.com/maps?saddr" + shoplatitude + "," + shoplongitude + "&saddr=" + clientlatitude + "," + clientlongitude;
+        String address2 = "https://www.google.com/maps/search/?api=1&query="+shoplatitude+","+shoplongitude;
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(address2));
+        intent.setPackage("com.google.android.apps.maps");
         startActivity(intent);
     }
 

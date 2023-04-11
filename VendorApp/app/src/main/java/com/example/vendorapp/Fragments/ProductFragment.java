@@ -33,6 +33,7 @@ public class ProductFragment extends Fragment {
     FirebaseAuth firebaseAuth;
     FirebaseUser user;
     String ID;
+    SearchView searchView;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -41,12 +42,12 @@ public class ProductFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_product1, container, false);
         setHasOptionsMenu(true);
-
+/*
         Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolBar);
 
         AppCompatActivity activity = (AppCompatActivity) getActivity();
         activity.setSupportActionBar(toolbar);
-        toolbar.setTitle("My Products");
+        toolbar.setTitle("My Products");*/
 
         firebaseAuth = FirebaseAuth.getInstance();
         user = firebaseAuth.getCurrentUser();
@@ -66,6 +67,20 @@ public class ProductFragment extends Fragment {
         itemAdapter.notifyDataSetChanged();
 
 
+        searchView = view.findViewById(R.id.searchview);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                txtSearch(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                txtSearch(newText);
+                return false;
+            }
+        });
         return view;
     }
 
@@ -81,6 +96,7 @@ public class ProductFragment extends Fragment {
         itemAdapter.stopListening();
     }
 
+    /*
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
@@ -102,7 +118,7 @@ public class ProductFragment extends Fragment {
             }
         });
     }
-
+*/
     private void txtSearch(String str) {
         FirebaseRecyclerOptions<ItemModel> options =
                 new FirebaseRecyclerOptions.Builder<ItemModel>()

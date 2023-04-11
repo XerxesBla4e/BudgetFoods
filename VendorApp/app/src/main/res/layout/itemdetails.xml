@@ -7,29 +7,23 @@
     tools:context=".VendorSignUp">
 
     <RelativeLayout
+        android:id="@+id/menu4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="2dp"
-        android:background="#37474f">
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="2dp"
+        android:background="@drawable/background_toolbar">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
             android:gravity="center"
-            android:text="DETAILS"
-            android:textColor="@color/white"
+            android:text="REGISTER"
+            android:textColor="@color/lightblue"
             android:textSize="25dp"
             android:textStyle="bold"></TextView>
-
-        <ImageView
-            android:id="@+id/editp"
-            android:layout_width="48dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:background="@drawable/shapestyle"
-            app:srcCompat="@drawable/edit1" />
 
         <ImageView
             android:id="@+id/deletep"
@@ -37,26 +31,43 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            android:background="@drawable/shapestyle"
+            android:layout_margin="5dp"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:tooltipText="Delete"
             app:srcCompat="@drawable/del" />
 
+        <ImageView
+            android:id="@+id/editp"
+            android:layout_width="48dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="5dp"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:tooltipText="Edit"
+            app:srcCompat="@drawable/edit1" />
     </RelativeLayout>
 
     <ImageView
         android:id="@+id/img"
-        android:layout_width="70dp"
-        android:layout_height="67dp"
+        android:layout_width="80dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/menu4"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="29dp"
-        android:background="#37474f"
-        app:srcCompat="@drawable/cart"></ImageView>
+        android:layout_marginTop="4dp"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:src="@drawable/ic_baseline_shopping_cart" />
 
     <TextView
         android:id="@+id/itmname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/img"
-        android:hint="ITEM NAME"
+        android:hint="FOOD NAME"
         android:textColor="@color/black"
         android:textSize="15sp"></TextView>
 
@@ -65,7 +76,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/itmname"
-        android:hint="ITEM PRICE"
+        android:hint="FOOD PRICE"
         android:textColor="@color/black"
         android:textSize="15sp"></TextView>
 
@@ -74,7 +85,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/itmprice"
-        android:hint="ITEM DESCRIPTION"
+        android:hint="SOURCE DESCRIPTION"
         android:textColor="@color/black"
         android:textSize="15sp"></TextView>
 
@@ -83,7 +94,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/itmdescription"
-        android:hint="ITEM QUANTITY"
+        android:hint="QUANTITY"
         android:textColor="@color/black"
         android:textSize="15sp"></TextView>
 
@@ -99,7 +110,8 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
             android:layout_marginRight="10dp"
-            android:hint="ITEM DISCOUNT"
+            android:hint="FOOD DISCOUNT"
+            android:layout_marginStart="7dp"
             android:textColor="@color/black"
             android:textSize="15sp"></TextView>
 
@@ -108,9 +120,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toEndOf="@+id/itmdiscountdesc"
+            android:layout_toRightOf="@+id/itmdiscount"
             android:hint="DISCOUNT PRICE"
             android:textColor="@color/black"
-            android:textSize="15sp"
-            android:layout_toRightOf="@+id/itmdiscount"></TextView>
+            android:layout_marginStart="90dp"
+            android:textSize="15sp"></TextView>
     </RelativeLayout>
 </RelativeLayout>

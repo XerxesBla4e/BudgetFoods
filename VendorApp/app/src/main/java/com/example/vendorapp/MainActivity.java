@@ -58,53 +58,48 @@ public class MainActivity extends AppCompatActivity {
         appname.animate().translationY(-1400).setDuration(2700).setStartDelay(0);
         lottie.animate().translationX(2000).setDuration(2000).setStartDelay(2900);
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                user = firebaseAuth.getCurrentUser();
-                if (user == null) {
-                    if (!isConnected()) {
-                        showCustomDialog();
-                    } else {
+        if (!isConnected()) {
+            showNoInternetDialog();
+        } else {
+
+            firebaseAuth = FirebaseAuth.getInstance();
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    user = firebaseAuth.getCurrentUser();
+                    if (user == null) {
+
                         startActivity(new Intent(MainActivity.this, Login.class));
-                    }
 
-                } else {
-                    checkUserType();
+                    } else {
+                        checkUserType();
+                    }
                 }
-            }
-        }, SPLASH_TIMER);
-    }
+            }, SPLASH_TIMER);
+        }
 
-    private void showCustomDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
-        builder.setMessage("Please Connect Internet To Proceed")
-                .setCancelable(false)
-                .setPositiveButton("Connect", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        startActivity(new Intent(Settings.ACTION_WIFI_ADD_NETWORKS));
-                    }
-                })
-                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                        finish();
-                    }
-                });
     }
 
     private boolean isConnected() {
-        ConnectivityManager connectivityManager = (ConnectivityManager)getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo wificonn = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
-        NetworkInfo mobileconn = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        return activeNetwork != null && activeNetwork.isConnectedOrConnecting();
+    }
 
-        if (wificonn != null && wificonn.isConnected() || mobileconn != null && mobileconn.isConnected()) {
-            return true;
-        } else {
-            return false;
-        }
+    private void showNoInternetDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setTitle("No internet Connection");
+        builder.setMessage("Please Connect Internet Connection To use this app\nSome features" +
+                "may not be available without internet");
+        builder.setPositiveButton("Connect", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                startActivity(new Intent(Settings.ACTION_SETTINGS));
+            }
+        });
+        builder.setCancelable(false);
+        builder.show();
+
     }
 
     private void checkUserType() {

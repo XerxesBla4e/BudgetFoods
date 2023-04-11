@@ -9,6 +9,13 @@
     <color name="white">#FFFFFFFF</color>
     <color name="light">#AEBECC</color>
 
+    <color name="lightBlue">#246BAA</color>
+    <color name="lightblue">#5DA8F3</color>
+    <color name="lightGreen">#18EC55</color>
+    <color name="grey">#90969b</color>
+    <color name="light_grey">#C5cfd1</color>
+    <color name="brytRed">#FA0217</color>
+
     <color name="card1">#999999</color>
     <color name="bg">#37474f</color>
     <color name="orange">#FF8C00</color>
